@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>安全中心</title>
+	<link rel="stylesheet" type="text/css" href="css/ui.css">
+	<link href="favicon.ico" type="image/x-icon" rel="icon">
+	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+</head>
+<body>
+	<div class="aui-container">
+		<div class="aui-page">
+			<div class="header header-color">
+				<div class="header-background"></div>
+				<div class="toolbar statusbar-padding">
+					<button class="bar-button back-button"  onclick="history.go(-1);"><i class="icon icon-back-sx"></i></button>
+					<div class="header-title">
+						<div class="title">安全中心</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-text-top aui-l-content aui-l-content-clear">
+				<div class="devider b-line"></div>
+				<div class="aui-menu-list aui-menu-list-clear">
+					<ul>
+						<li class="b-line">
+							<a href="javascript:;">
+								<div class="aui-icon"><img src="images/icon-png/icon-read10.png"></div>
+								<h3>登录密码</h3>
+								<span>账号安全</span>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+							</a>
+						</li>
+						<li class="b-line">
+							<a href="javascript:;">
+								<div class="aui-icon"><img src="images/icon-png/icon-read9.png"></div>
+								<h3>密保问题</h3>
+								<span class="aui-an-red">请设置密保以找回密码</span>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+							</a>
+						</li>
+						<li class="b-line">
+							<a href="javascript:;">
+								<div class="aui-icon"><img src="images/icon-png/icon-read8.png"></div>
+								<h3>绑定手机</h3>
+								<span>185****6778</span>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+							</a>
+						</li>
+						<div class="devider b-line"></div>
+						<li class="b-line">
+							<a href="javascript:;">
+								<div class="aui-icon"><img src="images/icon-png/icon-read7.png"></div>
+								<h3>支付密码</h3>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+							</a>
+						</li>
+						<li class="b-line">
+							<a href="javascript:;">
+								<div class="aui-icon"><img src="images/icon-png/icon-read6.png"></div>
+								<h3>找回支付密码</h3>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+							</a>
+						</li>
+						<div class="devider b-line"></div>
+						<li class="b-line">
+							<a href="javascript:;">
+								<div class="aui-icon"><img src="images/icon-png/icon-read5.png"></div>
+								<h3>设备管理</h3>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var aMenuOneLi = $(".aui-fold-master > li");
+			var aMenuTwo = $(".aui-fold-genre");
+			$(".aui-fold-master > li > .aui-fold-title").each(function (i) {
+				$(this).click(function () {
+					if ($(aMenuTwo[i]).css("display") == "block") {
+						$(aMenuTwo[i]).slideUp(300);
+						$(aMenuOneLi[i]).removeClass("menu-show")
+					} else {
+						for (var j = 0; j < aMenuTwo.length; j++) {
+							$(aMenuTwo[j]).slideUp(300);
+							$(aMenuOneLi[j]).removeClass("menu-show");
+						}
+						$(aMenuTwo[i]).slideDown(300);
+						$(aMenuOneLi[i]).addClass("menu-show")
+					}
+				});
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,7 @@
+<!--pages/help/help.wxml-->
+<block wx:for="{{stringArray}}">
+  <text class='item.styleClass'>{{item.str}}</text>
+  <!-- <text>{{name[1]}}</text>
+  <text>{{name[2]}}</text> -->
+
+</block>

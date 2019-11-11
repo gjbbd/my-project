@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>设置</title>
+	<link rel="stylesheet" type="text/css" href="css/ui.css">
+	<link href="favicon.ico" type="image/x-icon" rel="icon">
+	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+</head>
+<body>
+	<div class="aui-container">
+		<div class="aui-page">
+			<div class="header header-color">
+				<div class="header-background"></div>
+				<div class="toolbar statusbar-padding">
+					<button class="bar-button back-button"  onclick="history.go(-1);"><i class="icon icon-back-sx"></i></button>
+					<div class="header-title">
+						<div class="title">设置</div>
+					</div>
+				</div>
+			</div>
+			<div class="aui-text-top">
+				<div class="aui-content aui-card">
+					<ul class="aui-list-view">
+						<li class="aui-list-view-cell aui-switch-body">
+							<div class="aui-switch-title">弹窗推荐</div>
+							<input type="checkbox" class="aui-switch aui-pull-right" checked="">
+						</li>
+						<div class="devider b-line"></div>
+						<li class="aui-list-view-cell aui-switch-body">
+							<div class="aui-switch-title">消息推送</div>
+							<input type="checkbox" class="aui-switch aui-pull-right">
+						</li>
+						<div class="devider b-line"></div>
+						<li class="aui-list-view-cell aui-switch-body">
+							<div class="aui-switch-title">仅wifi下加载图片</div>
+							<input type="checkbox" class="aui-switch  aui-pull-right" >
+						</li>
+						<li class="aui-list-view-cell aui-switch-body">
+							<div class="aui-switch-title">字体大小</div>
+							<div class="aui-flex aui-switch-font">
+								<div class="aui-flex-item">大</div>
+								<div class="aui-flex-item aui-switch-on">中</div>
+								<div class="aui-flex-item">小</div>
+							</div>
+						</li>
+						<li class="aui-list-view-cell aui-switch-body">
+							<div class="aui-switch-title">清除缓存</div>
+							<span>38MB</span>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="aui-btn-item">
+				<a href="javascript:;" class="btn btn-confirm">退出登录</a>
+			</div>
+		</div>
+	</div>
+</body>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var aMenuOneLi = $(".aui-fold-master > li");
+			var aMenuTwo = $(".aui-fold-genre");
+			$(".aui-fold-master > li > .aui-fold-title").each(function (i) {
+				$(this).click(function () {
+					if ($(aMenuTwo[i]).css("display") == "block") {
+						$(aMenuTwo[i]).slideUp(300);
+						$(aMenuOneLi[i]).removeClass("menu-show")
+					} else {
+						for (var j = 0; j < aMenuTwo.length; j++) {
+							$(aMenuTwo[j]).slideUp(300);
+							$(aMenuOneLi[j]).removeClass("menu-show");
+						}
+						$(aMenuTwo[i]).slideDown(300);
+						$(aMenuOneLi[i]).addClass("menu-show")
+					}
+				});
+			});
+		});
+	</script>
+</html>

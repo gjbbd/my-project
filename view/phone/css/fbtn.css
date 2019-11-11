@@ -1,0 +1,31 @@
+.fbtn{
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    height: 60px;
+    border: 0px solid red;
+    margin-bottom: 1px;
+
+    margin-right: 1px;
+
+}
+.fbtn li{
+    float: left;
+    bottom: 0%;
+    border: 0px solid blue;
+    background:white;
+    width: 33.333%;
+    height: 60px;
+    font-size: 30px;
+    list-style: none;
+    text-align: center
+
+}
+.clearfix:after{content:'';display:block;clear: both;}
+.fbtn li:hover{background-color: rgb(231, 229, 229)}
+.fbtn li span{
+    position: relative;
+    top:-32px;
+    font-size: 15px;
+    text-align: center;
+}

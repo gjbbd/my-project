@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图书录入</title>
+    <style type="text/css">
+        .all{
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+        table{
+            position: relative;
+            top: 100px;
+            left: 350px;
+        }
+        tr{
+            height: 50px;
+        }
+
+        td{
+            width: 70px;
+            text-align: center;
+        }
+        .info{
+            width: 200px;
+        }
+        .submit{
+            position: relative;
+            top: 130px;
+            left: 381px;
+            width: 72px;
+        }
+        .phone{
+            position: relative;
+            top: 132px;
+            left: 460px;
+            width: 72px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 手动输入书本信息 -->
+    <div class="all">
+<!-- 提交书信息表单 -->
+        <form action="">
+            <table border="">
+                <tbody>
+                    <tr>
+                        <td>名称</td>
+                        <td class="info"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>作者</td>
+                        <td class="info"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>总数</td>
+                        <td class="info"><input type="number"></td>
+                    </tr>
+                    <tr>
+                        <td>ISBN码</td>
+                        <td class="info"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>位置</td>
+                        <td class="info"><input type="text"></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <input class="submit" type="submit" value="提交">
+            <button class="phone"><a href="scan.html">手机录入</a></button>
+        </form>
+    </div>
+</body>
+</html>

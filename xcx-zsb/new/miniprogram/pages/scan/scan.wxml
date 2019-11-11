@@ -1,0 +1,13 @@
+<!-- <view class='all'> -->
+  <view class='scanphoto'>
+    <image class='scan' src='../../images/icon-home/scanBook1.png'></image>
+    <text class='text'>扫一扫-借书还书</text>
+  </view>
+ 
+  <view class='viewBtn'>
+    <button class='btn' type="primary" bindtap="scanCode">
+      扫一扫
+    </button>
+  </view>
+
+<!-- </view> -->

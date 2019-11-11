@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>扫码页面</title>
+<meta name="viewport"
+content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" href="css/icons-extra.css" type="text/css" />
+<link rel="stylesheet" href="css/mui.min.css" type="text/css" />
+<link rel="stylesheet" href="css/app.css" type="text/css" />
+<script src="js/mui.min.js"></script>
+<style type="text/css">
+#h5code {
+width: 100%;
+height: 100%;
+position: absolute;
+background: #000000;
+}
+html, body, div {
+height: 100%;
+width: 100%;
+}
+.bcon {
+color: #0E76E1;
+width: 50%;
+background-color: #ffffff;
+float: left;
+line-height: 44px;
+text-align: center;
+}
+</style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+<h1 class="mui-title" style="color: #0E76E1;">二维码扫描</h1>
+<a class="active"><span
+class="mui-icon-extra mui-icon-extra-lamp mui-pull-right"
+style="margin: 6px 6px;" id="flashLight"></span></a>
+</header>
+
+
+<div id="h5code"></div>
+
+
+<div class="mui-bar mui-bar-footer" style="padding: 0px;">
+<div class="bcon mui-action-back" οnclick="cancelScan()">取 消</div>
+<div class="bcon" οnclick="openPicture();">相册</div>
+</div>
+
+
+<script type="text/javascript">
+//手机返回键
+window.onbeforeunload = function() {
+window.location.href = "index.html";
+}
+
+
+//扫描对象 
+var scan = null;
+mui.plusReady(function() {
+mui.init();
+startRecognize();
+});
+//打开摄像头功能
+function setFlash() {
+scan.setFlash(true);
+}
+function startRecognize() {
+try {
+//定义识别条码类型的过滤器
+var filter = null;
+var styles = {
+frameColor : "#29E52C",
+scanbarColor : "#29E52C",
+background : "rgba(255,255,255,-20)"
+};
+//扫描控件构造  
+scan = new plus.barcode.Barcode('h5code', filter, styles);
+//回调成功
+scan.onmarked = onmarked;
+//回调失败
+scan.onerror = onerror;
+scan.start();
+//打开关闭闪光灯处理  
+var flag = false;
+document.getElementById("flashLight").addEventListener('tap',
+function() {
+if (flag == false) {
+//打开摄像头
+scan.setFlash(true);
+flag = true;
+} else {
+//关闭摄像头
+scan.setFlash(false);
+flag = false;
+}
+});
+} catch (e) {
+alert("错误信息:" + e);
+}
+};
+// 从相册中选择二维码图片   
+function openPicture() {
+plus.gallery.pick(function(path) {
+plus.barcode.scan(path, onmarked, function(error) {
+plus.nativeUI.alert("无法识别此图片");
+});
+}, function(err) {
+plus.nativeUI.alert("错误信息: " + err.message);
+});
+}
+function onerror(e) {
+alert("打印错误信息："+e);
+};
+function onmarked(type, result) {
+var text = null;
+switch (type) {
+case plus.barcode.QR:
+text = "QR:";
+break;
+case plus.barcode.EAN8:
+text = "EAN8:";
+break;
+}
+alert("扫码结果 : " + result);
+
+
+};
+//结束对摄像头获取图片数据进行条码识别操作，同时关闭摄像头的视频捕获
+//所以不用scan.stop()
+function cancelScan() {
+scan.cancel();
+//scan.stop();
+}
+
+</script>
+</body>
+</html>

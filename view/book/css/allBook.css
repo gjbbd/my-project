@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+  
+}
+body{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+h1{
+    height: 50px;
+    line-height: 150px;
+}
+tr{
+    position: relative;
+    height: 100px;
+    
+}
+td{
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    position: relative;
+    vertical-align:middle;
+
+}
+th{
+    height: 100px;
+    text-align: center;
+}
+/* 第一行tr */
+.firstTr{
+    height: 30px;
+    
+}

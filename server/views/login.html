@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="./../node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/javascript" href="./../node_modules/jquery/dist/jquery.js">
+		<link rel="stylesheet" type="text/css" href="./../node_modules/animate.css/animate.css" />
+	</head>
+
+	<body>
+		<div style="background-image: url(../public/img/loginbg.jpg); background-repeat: no-repeat; width: 100%;height:100%;position:absolute;">
+			<div style="width: 26%; position: absolute; left:37%;margin-top: 8%;">
+				<!-- 用户头像 -->
+				<div id="touxiang">
+					<a href="/" style="margin:0 37% ;">
+						<img src="../public/img/avtar.png" opacity="0.3" style="border-radius: 50%; width: 26%; margin: 0 auto;">
+					</a>
+				</div>
+				<div style="height: 20%;border-radius: 20px; background-color: #212529;opacity: 0.8;">
+					<!-- <h1>用户登录</h1> -->
+
+					<form id="login_form" style="width: 80%; margin-left: 10%;margin-top: -8%;color: powderblue;">
+						<br>
+						<button id="msg" class="form-control" style="background-color: red;border-radius: 10px;width: 80%; margin-left: 10%;margin-bottom: 5%;margin-top: 0%;">
+							<p id="tishiyu" style="font-size: 18px;color: greenyellow;">登&nbsp;&nbsp;&nbsp;录</p>
+						</button>
+						<div class="form-group">
+							<label for="">工号</label>
+							<input type="text" class="form-control" id="idcard" value="" name="idcard" placeholder="请输入工号" autofocus>
+						</div>
+						<div class="form-group">
+							<label for="">密码</label>
+							<a class="pull-right" href="">忘记密码？</a>
+							<input type="password" class="form-control" id="password" value="" name="password" placeholder="请输入密码">
+						</div>
+
+						<!-- 验证码 -->
+						<div id="yzm" style="width: 100%;height: 40px; margin: 15px auto;"></div>
+						<input type="text" id="code_input" value="" class="form-control" autocomplete="off" placeholder="请输入验证码" />
+						<!-- <button id="my_button" class="btn bg-success btn-block">验证</button> -->
+
+						<br>
+						<button type="submit" id="my_button" class="btn btn-info btn-block">登录</button>
+					</form>
+					<div class="message" style="margin-left: 10%;font-size:14px;color: whitesmoke;margin-top: 5%;">
+						<p>没有账号? <a href="/register">点击创建一个吧</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/node_modules/jquery/dist/jquery.js"></script>
+		<script src="/node_modules/yzm/jQueryYzm/js/gVerify.js"></script>
+		<script>
+			// 验证码
+			// var verifyCode = new GVerify("yzm");
+			var verifyCode = new GVerify({
+				id: "yzm",
+				type: "number"
+			});
+			document.getElementById("my_button").onclick = function() {
+				var res = verifyCode.validate(document.getElementById("code_input").value);
+				if (res) {
+					// alert("验证正确");
+					$('#msg').hide()
+					$('#login_form').on('submit', function(e) {
+						e.preventDefault()
+						var idcard = $('#idcard').val()
+						var password = $('#password').val()
+						$.ajax({
+							url: '/',
+							type: 'post',
+							data: {
+								idcard: idcard,
+								password: password
+							},
+							success: function(data) {
+								if (data) {
+									if (data.message == 'success') {
+										// window.alert('注册成功！')
+										// 服务端重定向针对异步请求无效
+										window.location.href = '/index'
+									} else if (data.message == 'fail') {
+										// window.alert('工号或者密码错误')
+										$('#tishiyu').text('工号或者密码错误')
+										$('#msg').fadeIn(1000).addClass("animated bounce infinite").fadeOut(2000)
+										$("#idcard").val('')
+										$('#password').val('')
+										
+									}
+								}
+							}
+						})
+					})
+					
+				} else {
+					alert("验证码错误");
+				}
+			}
+		</script>
+	</body>
+
+</html>

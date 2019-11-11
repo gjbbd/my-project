@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="css/ui.css">
+	<link rel="stylesheet" href="css/fbtn.css">
+	<link href="favicon.ico" type="image/x-icon" rel="icon">
+	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+</head>
+<body>
+	<div class="aui-container">
+		<div class="aui-page">
+			<div class="aui-page-my">
+				<div class="aui-my-info">
+					<div class="aui-my-info-back"></div>
+					<a href="javascript:;" class="">
+						<img src="images/icon-png/my-aw.jpg" class="aui-my-avatar">
+					</a>
+					<div class="aui-mt-location aui-l-red"></div>
+				</div>
+				<div class="aui-l-content">
+					<!-- 0发现对应页面==首页  开始-->
+					<div class="firstDiv">
+							<div class="header header-color">
+									<div class="header-background"></div>
+									<div class="toolbar statusbar-padding">
+										<button class="bar-button back-button"  onclick="history.go(-1);"><i class="icon icon-back-sx"></i></button>
+										<div class="header-title">
+											<div class="title">阅读</div>
+										</div>
+									</div>
+								</div>
+					</div>
+					<!-- 0首页页面  结束 -->	
+
+					<!-- 1扫一扫对应页面  开始 -->
+					<div class="scanDiv">
+					
+					</div>
+					<!-- 1扫一扫页面  结束 -->
+
+					<!-- 2我的 对应内容 -->
+					<div class="aui-menu-list aui-menu-list-clear">
+						<ul>
+							<li class="b-line">
+								<a href="my-read.html">
+								<div class="aui-icon"><img src="images/icon-home/my-in1.png"></div>
+								<h3>已借阅-0</h3>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+							<li class="b-line">
+								<a href="my-read.html">
+								<div class="aui-icon"><img src="images/icon-home/my-in2.png"></div>
+								<h3>收藏-0</h3>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+							<li class="b-line">
+								<a href="my-read.html">
+								<div class="aui-icon"><img src="images/icon-home/my-in3.png"></div>
+								<h3>历史</h3>
+								<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+							<li class="b-line">
+								<a href="my-put.html">
+									<div class="aui-icon"><img src="images/icon-home/my-in4.png"></div>
+									<h3>读者证</h3>
+									<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+							
+							
+							<li class="b-line">
+								<a href="my-secure.html">
+									<div class="aui-icon"><img src="images/icon-home/my-in5.png"></div>
+									<h3>安全中心</h3>
+									<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+							<li class="b-line">
+								<a href="my-up.html">
+									<div class="aui-icon"><img src="images/icon-home/my-in6.png"></div>
+									<h3>设置</h3>
+									<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+							
+							<li class="b-line">
+								<a href="my-up.html">
+									<div class="aui-icon"><img src="images/icon-home/my-in7.png"></div>
+									<h3>推荐给好友</h3>
+									<div class="aui-time"><i class="aui-jump"></i></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- 2我的  页面结束 -->
+
+				
+
+					
+
+				</div>
+			</div>
+		</div>
+
+		<!-- 底部菜单 -->
+		<div class="fbtn clearfix">
+			<!-- 对应firstDiv -->
+			<!-- my-read.html -->
+				<li value="0" class="active">
+					<img class="findImg" src="images/icon-png/find.png" alt="" height="30px"><br>
+					<span>发现</span>
+				</li>
+
+			<!-- 对应scanDiv -->
+		
+				<li value="1">
+					<img class="scanImg" src="images/icon-png/scan.png" alt="" height="30px"><br>
+					<span>扫一扫</span>
+				</li>
+	
+			<!-- 对应 我的 -->
+		
+				<li value="2">
+					<img class="myImg" src="images/icon-png/my.png" alt="" height="30px"><br>
+					<span>我的</span>
+				</li>
+				
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script>
+		// $(function(){
+		// 	$(".fbtn").find("li").on("click",function(){
+		// 		a = $(this).val();
+
+		// 		if(a==0){
+				
+		// 			$("li").find(".findImg").replaceWith("<img src='images/icon-png/find1.png' alt='' height='30px'>");
+		// 			$("li").find(".scanImg").replaceWith("<img src='images/icon-png/scan.png' alt='' height='30px'>");
+		// 			$("li").find(".myImg").replaceWith("<img src='images/icon-png/my.png' alt='' height='30px'>");
+		// 		}
+		// 		if(a==1){
+				
+		// 			$("li").find(".scanImg").replaceWith("<img src='images/icon-png/scan1.png' alt='' height='30px'>");
+		// 			$("li").find(".findImg").replaceWith("<img src='images/icon-png/find.png' alt='' height='30px'>");
+		// 			$("li").find(".myImg").replaceWith("<img src='images/icon-png/my.png' alt='' height='30px'>");
+		// 		}
+		// 		if(a==2){
+				
+		// 			$("li").find(".myImg").replaceWith("<img src='images/icon-png/my1.png' alt='' height='30px'>");
+		// 			$("li").find(".findImg").replaceWith("<img src='images/icon-png/find.png' alt='' height='30px'>");
+		// 			$("li").find(".scanImg").replaceWith("<img src='images/icon-png/scan.png' alt='' height='30px'>");
+		// 		}
+		// 	});
+		// });
+
+		// 点击菜单切换div实现变换页面功能
+		$(window).load(function(){
+        	$(".aui-l-content>div").eq(0).show().siblings().hide();
+		});
+		$(".fbtn>li").click(function () {
+        	$(this).addClass("active").siblings().removeClass("active");
+        		var index = $(this).index();
+        		$(".aui-l-content>div").eq(index).show().siblings().hide();
+		});
+
+		$(function(){
+		 	$(".fbtn").find("li").on("click",function(){
+				a = $(this).val();
+				if(a == 0 || a ==1){
+					$("aui-my-info").remove();
+				}
+
+		});
+
+	</script>
+
+</body>
+</html>

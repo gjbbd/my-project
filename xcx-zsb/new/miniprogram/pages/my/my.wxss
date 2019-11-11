@@ -1,0 +1,77 @@
+.headBox{
+  position: relative;
+  width: 100%;
+  height: 280rpx;
+  border: 0px solid red;
+
+}
+
+/* 头像后面的背景 */
+.bg{
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 360rpx;
+}
+
+/* 头像 */
+#userinfo{
+  position: relative;
+  top: -320rpx;
+  left: 290rpx;
+  width: 185rpx;
+  height:185rpx;
+  border-radius:50%;
+  display: flex;
+  overflow:hidden;
+  text-align: center;
+}
+
+#container{
+  position: relative;
+  top: 80rpx;
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap:wrap;
+  width: 100%;
+  height: 400rpx;
+}
+.cublic{
+  width: 246rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;  /* 水平居中 */
+  align-items: center;  /* 垂直居中 */
+  border: 1px solid	#DCDCDC;
+  border-right: 0px solid	#DCDCDC;
+  border-top:0rpx; 
+  margin-left: 1rpx;
+}
+
+#container image{
+  position: relative;
+  top: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.name1{
+  position: absolute;
+  top: 130rpx;
+  left: 90rpx;
+  font-size: 33rpx;
+}
+.name2{
+  position: absolute;
+  top: 110rpx;
+  left: 85rpx;
+  font-size: 33rpx;
+}
+button{
+  width: 246rpx;
+  height: 200rpx;
+  /* border: 1rpx solid red; */
+}
+.uploader{
+  color: black;
+}

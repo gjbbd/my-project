@@ -1,0 +1,40 @@
+        *{
+        	margin: 0;
+        	padding: 0;
+        }
+        .menu{
+            width: 100%;
+            height:auto;    /* 切记:高为auto时才可以实现推下去的效果,否则会在下一个下拉菜单下方显示隐藏的部分*/
+            margin:auto 10px;
+        }
+        .item{
+            width: 100%;
+            height:auto;    /* 切记:高为auto时才可以实现推下去的效果,否则会在下一个下拉菜单下方显示隐藏的部分*/
+            margin-top: 0;
+			opacity: 0.7;
+			font-size: 18px;
+			letter-spacing: 5px;
+        }
+
+        .item > .itemBox{
+            width: 80%;
+			margin:0 auto;
+            height:0px;
+            overflow: hidden;
+            transition-property: height;
+            /*2.一定要设置过渡效果的耗时*/
+            transition-duration: 0.7s;
+        }
+        .item > .itemBox > ul{
+            list-style: none;
+            /* background-color: gainsboro; */
+            padding:0px;
+            width: 100%;
+            text-align: center;
+            margin-top: 0;
+        }
+        /*为item添加hover伪类*/
+        .item:hover > .itemBox{
+            /*display: block;*/
+            height:120px;   
+        }

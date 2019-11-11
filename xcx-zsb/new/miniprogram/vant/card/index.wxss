@@ -1,0 +1,118 @@
+@import '../common/index.wxss';
+
+.van-card {
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+  padding: 5px 5px;
+  font-size: 12px;
+  color: #333;
+  background-color: #fafafa;
+  box-sizing: border-box;
+  border-bottom: 4px solid gainsboro;
+}
+
+.van-card__header {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.van-card__header--center {
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.van-card__thumb {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+  -webkit-flex: none;
+  flex: none;
+}
+
+.van-card__thumb:empty {
+  display: none;
+}
+
+.van-card__img {
+  width: 100%;
+  height: 100%;
+}
+
+.van-card__content {
+  position: relative;
+  min-width: 0;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.van-card__desc, .van-card__title {
+  word-break: break-all;
+
+}
+
+.van-card__title {
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.van-card__desc {
+  color: #7d7e80;
+}
+
+.van-card__bottom, .van-card__desc {
+  line-height: 20px;
+}
+
+.van-card__price {
+  /* display: inline-block; */
+  font-weight: 700;
+  color: #f44;
+  float: right;
+  margin-top: 0px;
+}
+
+.van-card__origin-price {
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  color: #7d7e80;
+  text-decoration: line-through;
+}
+
+.van-card__num {
+  float: right;
+  font-weight: 700;
+  color: #f44;
+  float: right;
+  margin-top: -10px;
+}
+
+.van-card__tag {
+  position: absolute;
+  width: 40px;
+  /* margin-top: 40%; */
+  top: 2px;
+  left: 0;
+}
+
+.van-card__footer {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-flex: none;
+  flex: none;
+  background-color: blueviolet;
+  border-radius: 20%;
+  color: white;
+  font-size: 15px;
+  margin-top: 5px;
+  opacity: 0.7;
+  letter-spacing: 5px;
+}

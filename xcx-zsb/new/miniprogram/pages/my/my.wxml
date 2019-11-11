@@ -1,0 +1,59 @@
+<view class="headBox">
+  <view>
+  <!-- 头像后面的背景 -->
+    <image class='bg' src='../../images/img/my-bj.jpg'    background-size='cover'></image>
+  </view>
+  
+  <!-- 头像 -->
+  <view>
+    <view class="logo"><open-data type="userAvatarUrl" class="userinfo" id="userinfo"></open-data></view>
+  </view>
+  
+</view>
+
+<!-- 项目栏 -->
+<view id='container'>
+  <view class='cublic color-red'>
+    <button bindtap='borrow'>
+      <image src='../../images/icon-home/1.png'></image>
+      <text class='name1'>借阅·15</text>
+    </button>
+  </view>
+
+  <view class='cublic color-red'>
+    <button bindtap='order'>
+      <image src='../../images/icon-home/2.png'></image>
+      <text class='name1'>预约</text>
+    </button>
+  </view>
+  <view class='cublic color-red'>
+    <button bindtap='favorite'>
+      <image src='../../images/icon-home/3.png'></image>
+      <text class='name1'>收藏</text>
+    </button>
+  </view>
+  <view class='cublic color-red'>
+    <button bindtap='history'>
+      <image src='../../images/icon-home/4.png'></image>
+      <text class='name2'>历史</text>
+    </button>
+  </view>
+  <view class='cublic color-red'>
+    <button bindtap='perInfo'>
+      <image src='../../images/icon-home/5.png'></image>
+      <text class='name2'>读者证</text>
+    </button>
+  </view>
+  <view class='cublic color-red'>
+    <button bindtap='help'>
+      <image src='../../images/icon-home/6.png'></image>
+      <text class='name2'>帮助</text>
+    </button>
+  </view>
+   <!-- 即时通信 -->
+    <view class="uploader">
+    <navigator url="./../im/room/room" open-type="navigate" class="uploader-text">
+      <text>进入聊天室</text>
+    </navigator>
+  </view>
+</view>
