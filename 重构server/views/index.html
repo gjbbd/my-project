@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./../../node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/javascript" href="./../../node_modules/jquery/dist/jquery.js">
+		<link rel="stylesheet" type="text/css" href="/views/css/xlcd.css" />
+		<link rel="stylesheet" type="text/css" href="/views/css/index.css">
+	</head>
+
+	<body>
+		<div class="main">
+
+			<!-- left -->
+			<div class="left">
+				<iframe src="/views/page_componnent/left.html" width="100%" height="100%" style="border: 0px;"></iframe>
+			</div>
+
+			<!-- right -->
+			<div class="right">
+				<!-- top -->
+				<div class="top">
+					<div style="margin-top: 30px; margin-right: 5%;position: relative;">
+						<span style="font-size: 20px; margin-left: 5%;">图书信息</span>
+						<div style="font-size: 20px; float: right;">
+							<a href="/user/logout" target="_parent" id="logout">退出登录</a>
+						</div>
+						<span style="font-size: 20px; float: right;margin-right: 30px;">
+							个人中心
+						</span>
+					</div>
+					<div class="input-group" style="width: 40%;margin-left: 30%;margin-top: -30px;">
+						<form action="/book/search" method="post">
+							<input type="text" id="searchinput" value="" name="searchinput" class="form-control" placeholder="请输入要查询的图书名称关键字"
+							 aria-describedby="basic-addon1" style="width:350px;">
+							<input type="submit" style="margin-top:-37.5px;margin-left: -25px;float: right;background-color: #B8DAFF;width: 25%;border-radius: 0 5px 5px 0;font-size: 20px;letter-spacing: 5px;line-height: 35px;text-align: center;"
+							 id="searchbtn" value="搜索" />
+						</form>
+					</div>
+				</div>
+				<hr>
+				<!-- 添加书 -->
+				<a id="add" class="btn btn-info btn-block" style="width: 80%;margin: 10px auto;background-color: skyblue;letter-spacing: 5px;font-size: 16px;"
+				 target="_self">又添新丁咯</a>
+				<table border="0px solid groy" class="table table-hover text-center tablewh" style="width: 95%;margin: 10px auto;">
+					<tbody>
+						<tr style="opacity: 0.8;font-size: 19px;font-weight: 600;">
+							<td>书&nbsp;&nbsp;名</td>
+							<td>作&nbsp;&nbsp;者</td>
+							<td>数&nbsp;&nbsp;量</td>
+							<td>版&nbsp;&nbsp;次</td>
+							<td>类&nbsp;&nbsp;别</td>
+							<td>编&nbsp;&nbsp;辑</td>
+							<td>删&nbsp;&nbsp;除</td>
+						</tr>
+						{{ each books }}
+						<tr>
+							<td>{{$value.name}}</td>
+							<td>{{$value.author}}</td>
+							<td>{{$value.count}}</td>
+							<td>{{$value.date}}</td>
+							<td>{{$value.catagory}}</td>
+							<td><a id="update" href="/book/index/update?id={{$value.id}}" target="_self">编辑</a></td>
+							<td><a id="del" href="/book/index/del?id={{ $value.id }}" target="_self">删除</a></td>
+						</tr>
+						{{ /each }}
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</body>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<script>
+        var token=localStorage.getItem('loginToken')
+        console.log(token);
+        
+		$('#searchbtn').on('submit', function(e) {
+			e.preventDefault()
+			var search = $('#searchinput').val()
+            
+			$.ajax({
+				url: '/book/search',
+				type: 'post',
+				data: {
+					search: search,
+                    token:token
+				},
+				success: function(data) {
+					if (data) {
+						if (data.message == 'success') {
+							// window.location.href = '/index'
+							res.render('index.html', {
+								books: data
+							})
+						} else if (data.message == 'fail') {
+							$("#searchinput").val('')
+						}
+					}else{
+                        window.alert('未找到答案')
+                    }
+				}
+			})
+		})
+        
+        $('#add').on('click',function(){
+            
+            this.href='/book/index/add?token='+token
+            
+        })
+        
+        $('#update').on('click',function(){
+            
+            // let myurl=this.getAttribute('myurl')
+            // this.href="/book/index/update?id="+myurl+"&token="+token
+            // console.log(myurl+"&token="+token);
+            
+            console.log(this.href);
+            this.href=this.href+"&token="+token
+        })
+        
+        
+        $('#del').on('click',function(){
+            // let myurl=this.getAttribute('del')
+            // this.href=myurl+"&token="+token
+            console.log(this.href);
+            this.href=this.href+"&token="+token
+            window.alert('操作成功')
+        })
+
+        $('#logout').on('click',function(){
+            //销毁localstory
+            localStorage.removeItem('loginToken')
+        })
+	</script>
+
+</html>

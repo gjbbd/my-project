@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="./../../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/javascript" href="./../../node_modules/jquery/dist/jquery.js">
+    <link rel="stylesheet" type="text/css" href="/views/css/xlcd.css" />
+    <style type="text/css">
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .left {
+            width: 100;
+            height: 100%;
+            background-image: url(../../public/img/indexbg.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            /* opacity: 0.9; */
+            float: left;
+            overflow: hidden;
+        }
+
+        .tx {
+            width: 40%;
+            border-radius: 50%;
+            margin: 35% 30% 10% 30%;
+        }
+
+        button {
+            width: 80%;
+            margin: 10px 10%;
+            opacity: 0.7;
+            font-size: 18px;
+            letter-spacing: 5px;
+        }
+    </style>
+
+    <body>
+        <div class="left">
+            <!-- 头像 -->
+            <div>
+                <div class="tx">
+                    <img src="../../public/img/avtar.png">
+                </div>
+                <!-- 菜单 -->
+                <div class="muin">
+                    <!-- <a href="/book/index" value="home" target="_parent"><button type="button" class="btn btn-info">图书信息</button></a> -->
+                    <a value="home" target="_parent" id="index"><button type="button" class="btn btn-info">图书信息</button></a>
+                    <a value="catagory" target="_parent" id="catagory"><button type="button" class="btn btn-warning">图书分类</button></a>
+                    <!-- 下拉菜单 -->
+                    <div class="menu">
+                        <div class="item">
+                            <div class="btn btn-success" style="width: 80%;margin-left: 10px;font-weight: 350;font-size: 17px;">借阅/归还</div>
+                            <div class="itemBox">
+                                <ul>
+                                    <li><a id="borrow" value="borrow" target="_parent"><button type="button" class="btn bg-warning">图书借阅</button></a></li>
+                                    <li><a id="returns" value="borrow" target="_parent"><button type="button" class="btn bg-primary">图书归还</button></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/admin" value="admin" target="_parent"><button type="button" class="btn btn-danger">个人中心</button></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    let token=localStorage.getItem('loginToken')
+    let index=document.getElementById('index')
+    index.href='/book/index?token='+token
+    
+    let catagory=document.getElementById('catagory')
+    catagory.href='/book/catagory?token='+token
+    
+    let borrow=document.getElementById('borrow')
+    borrow.href='/book/borrow?token='+token
+    
+    let returns=document.getElementById('returns')
+    returns.href='/book/returns?token='+token
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./../../node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/javascript" href="./../../node_modules/jquery/dist/jquery.js">
+		<link rel="stylesheet" type="text/css" href="/views/css/xlcd.css" />
+		<link rel="stylesheet" type="text/css" href="/views/css/index.css">
+	</head>
+
+	<body>
+		<div class="main">
+
+			<!-- left -->
+			<div class="left">
+				<iframe src="/views/page_componnent/left.html" width="100%" height="100%" style="border: 0px;"></iframe>
+			</div>
+
+			<!-- right -->
+			<div class="right">
+				<!-- top -->
+				<div class="top">
+					<iframe src="/views/page_componnent/top.html" width="100%" style="border: 0px;"></iframe>
+				</div>
+				<hr>
+				<!-- 添加书类别 -->
+					<a href="/book/catagory/catagoryadd" class="btn btn-info btn-block" style="width: 80%;margin: 10px auto;background-color: skyblue;letter-spacing: 5px;font-size: 16px;" target="_self">又添新丁咯</a>
+				
+					<table border="0px solid groy" class="table table-hover text-center tablewh" style="width: 95%;margin: 10px auto;">
+						<tbody>
+							<tr style="opacity: 0.8;font-size: 19px;font-weight: 600;">
+								<td>分类id</td>
+								<td>图书类别</td>
+								<td>编辑类别</td>
+								<td>删除类别</td>
+							</tr>
+							{{ each catagory }}
+							<tr>
+								<td>{{$value.id}}</td>
+								<td>{{$value.catagory}}</td>
+								<td><a href="/book/catagory/updatecatagory?id={{ $value.id }}" target="_self" >编辑</a></td>
+								<td><a id="del" href="/book/catagory/delcatagory?id={{ $value.id }}" target="_self">删除</a></td>
+							</tr>
+							{{ /each }}
+						</tbody>
+					</table>
+
+			</div>
+		</div>
+	</body>
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+
+</html>
+<script type="text/javascript">
+    let token=localStorage.getItem('loginToken')
+</script>
